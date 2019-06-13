@@ -18,7 +18,7 @@ if os.path.exists('requirements.txt'):
 
 setup(
     name='upfp',
-    version='0.0.1',
+    version='0.0.2',
     description='UPFP, a package to parse UniProt FASTA files.',
     long_description=LONG_DESCRIPTION,
     author='Matteo Manica',
