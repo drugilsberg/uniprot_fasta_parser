@@ -3,8 +3,8 @@ import gzip
 import re
 
 FASTA_HEADER_REGEX = re.compile(
-    r'\>(\w+)\|(\w+)\|(\w+)\s(.*)\sOS=(.*)\s'
-    r'OX=(.*)\sGN=(.*)\sPE=(\d+)\sSV=(\d+)'
+    r'\>(\w+)\|(\w+)\|(\w+)\s(.*)\sOS=(.*)\sOX='
+    r'(\d+)\s(GN=(.*)\s)?PE=(\d+)\sSV=(\d+)'
 )
 
 
@@ -46,11 +46,13 @@ def parse_fasta(filepath, gzipped=True):
                     'recommended_name': groups[3],
                     'organism_name': groups[4],
                     'organism_id': groups[5],
-                    'gene_name': groups[6],
-                    'protein_existence': groups[7],
-                    'sequence_version': groups[8],
+                    'gene_name': groups[7],
+                    'protein_existence': groups[8],
+                    'sequence_version': groups[9],
                     'sequence': ''
                 }
             else:
                 # accumulate the sequence
                 sequence['sequence'] += line
+        # yield the last sequence
+        yield sequence
