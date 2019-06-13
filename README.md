@@ -3,7 +3,7 @@
 
 UniProt FASTA parser written in pure python.
 
-## Setup the environment
+## Development setup
 
 Create a `venv`:
 
@@ -33,7 +33,7 @@ Install `jupiter` playground:
 
 ```sh
 pip install jupyter
-ipython kernel install --user --name=repo-name
+ipython kernel install --user --name=uniprot_fasta_parser
 ```
 
 ## Tutorial on exporting FASTA sequences in CSV format
