@@ -36,7 +36,7 @@ pip install jupyter
 ipython kernel install --user --name=uniprot_fasta_parser
 ```
 
-## Tutorial on exporting FASTA sequences in CSV format
+## Tutorial on converting FASTA sequences into CSV format
 
 Get the latest FASTA from UniProt SwissProt:
 
@@ -62,7 +62,7 @@ optional arguments:
                         size of the chunks us
 ```
 
-Provide as input the downloaded gzipped FASTA file:
+Provide as input the downloaded gzipped FASTA file and convert it to CSV:
 
 ```sh
 upfp-fasta-to-csv uniprot_sprot.fasta.gz /path/to/file.csv -g
