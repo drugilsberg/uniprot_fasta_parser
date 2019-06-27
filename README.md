@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/drugilsberg/uniprot_fasta_parser.svg?branch=master)](https://travis-ci.org/drugilsberg/uniprot_fasta_parser)
 [![Updates](https://pyup.io/repos/github/drugilsberg/uniprot_fasta_parser/shield.svg)](https://pyup.io/repos/github/drugilsberg/uniprot_fasta_parser/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://badge.fury.io/py/upfp.svg)](https://badge.fury.io/py/upfp)
 # uniprot_fasta_parser
 
 UniProt FASTA parser written in pure python.
