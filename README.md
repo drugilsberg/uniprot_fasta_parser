@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/drugilsberg/uniprot_fasta_parser.svg?branch=master)](https://travis-ci.org/drugilsberg/uniprot_fasta_parser)
+[![Updates](https://pyup.io/repos/github/drugilsberg/uniprot_fasta_parser/shield.svg)](https://pyup.io/repos/github/drugilsberg/uniprot_fasta_parser/)
 # uniprot_fasta_parser
 
 UniProt FASTA parser written in pure python.
