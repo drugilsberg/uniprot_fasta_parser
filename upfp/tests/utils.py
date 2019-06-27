@@ -9,7 +9,7 @@ class TestFileContent:
 
     Inspired by: https://stackoverflow.com/a/54053967/10032558.
     """
-    
+
     def __init__(self, content: str) -> None:
         """
         Initialize the file with a content.
@@ -24,7 +24,7 @@ class TestFileContent:
     @property
     def filename(self):
         """Get the name of the file."""
-        return self.file.name                                                                        
+        return self.file.name
 
     def __enter__(self):
         """Enter the `with` block."""
