@@ -3,6 +3,7 @@
 [![Updates](https://pyup.io/repos/github/drugilsberg/uniprot_fasta_parser/shield.svg)](https://pyup.io/repos/github/drugilsberg/uniprot_fasta_parser/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://badge.fury.io/py/upfp.svg)](https://badge.fury.io/py/upfp)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0ef7d17b52b443c593bf151e85c9d800)](https://www.codacy.com/app/drugilsberg/uniprot_fasta_parser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=drugilsberg/uniprot_fasta_parser&amp;utm_campaign=Badge_Grade)
 # uniprot_fasta_parser
 
 UniProt FASTA parser written in pure python.
