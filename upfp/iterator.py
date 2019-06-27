@@ -17,7 +17,7 @@ def chunker(iterable, chunk_size):
        chunk = tuple(
            itertools.islice(
                iterator,
-               chunk_size 
+               chunk_size
             )
         )
        if not chunk:
