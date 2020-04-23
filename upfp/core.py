@@ -92,7 +92,7 @@ def smi_to_fasta(filepath, chunk_size):
             and accession_number as first columns.
         chunk_size (int): number of rows to process at a time.
     Returns:
-        str: generator of chunks of fasta seqences.
+        str: generator of chunks of fasta sequences.
     """
 
     chunks = pd.read_csv(filepath, chunksize=chunk_size, sep='\t', header=None)
