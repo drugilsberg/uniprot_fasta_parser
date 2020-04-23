@@ -115,7 +115,7 @@ def format_fasta(header, sequence, line_length=60):
     Returns:
         str: fasta file entry.
     """
-    lines = [f'>{header}\n']
+    lines = ['>{header}\n'.format(header=header)]
     for i in range(0, len(sequence), line_length):
         lines.append(sequence[i:i + line_length] + '\n')
 
