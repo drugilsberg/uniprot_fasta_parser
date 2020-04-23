@@ -12,7 +12,7 @@ parser.add_argument(
 )
 parser.add_argument(
     'fasta_filepath', type=str,
-    help='path where to store the FASTA file'
+    help='path where to store the FASTA file.'
 )
 parser.add_argument(
     '-g', '--gzipped', action='store_true',
