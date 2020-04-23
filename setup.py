@@ -37,5 +37,5 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     packages=find_packages(),
-    scripts=['bin/upfp-fasta-to-csv']
+    scripts=['bin/upfp-fasta-to-csv', 'bin/upfp-csv-to-fasta']
 )

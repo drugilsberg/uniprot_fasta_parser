@@ -1,5 +1,5 @@
 """UPFP initialization modules."""
-from .core import parse_fasta
+from .core import parse_fasta, csv_to_fasta, smi_to_fasta
 from .iterator import chunker
 
 name = 'upfp'

@@ -52,23 +52,45 @@ wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/c
 The script `upfp-fasta-to-csv` (installed with `upfp`) can be used.
 
 ```console
-user@host $ upfp-fasta-to-csv -h
+upfp-fasta-to-csv -h
 usage: upfp-fasta-to-csv [-h] [-g] [-c CHUNK_SIZE] fasta_filepath csv_filepath
 
 positional arguments:
-  fasta_filepath        path to the FASTA file
-  csv_filepath          path where to store the CSV file
+  fasta_filepath        path to the FASTA file.
+  csv_filepath          path where to store the CSV file.
 
 optional arguments:
   -h, --help            show this help message and exit
   -g, --gzipped         flag to indicate whether the FASTA is gzipped.
                         Defaults to False.
   -c CHUNK_SIZE, --chunk_size CHUNK_SIZE
-                        size of the chunks us
+                        size of the chunks used when writing the CSV file.
+                        Defaults to 10000.
 ```
 
 Provide as input the downloaded gzipped FASTA file and convert it to CSV:
 
 ```sh
 upfp-fasta-to-csv uniprot_sprot.fasta.gz /path/to/file.csv -g
+```
+
+## Revert CSV to FASTA
+
+You might want to recreate FASTA format from a CSV resulting from `upfp` with the script `upfp-csv-to-fasta`.
+
+```console
+upfp-csv-to-fasta -h  
+usage: upfp-csv-to-fasta [-h] [-g] [-c CHUNK_SIZE] csv_filepath fasta_filepath
+
+positional arguments:
+  csv_filepath          path to the CSV file or SMI file.
+  fasta_filepath        path where to store the FASTA file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -g, --gzipped         flag to indicate whether the FASTA should be gzipped.
+                        Defaults to False.
+  -c CHUNK_SIZE, --chunk_size CHUNK_SIZE
+                        size of the chunks used when writing the FASTA file.
+                        Defaults to 10000.
 ```
