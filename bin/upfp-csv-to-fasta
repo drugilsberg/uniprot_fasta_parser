@@ -3,12 +3,12 @@
 import argparse
 import gzip
 
-from upfp import to_fasta
+from upfp import csv_to_fasta, smi_to_fasta
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
     'csv_filepath', type=str,
-    help='path to the CSV file'
+    help='path to the CSV file or SMI file.'
 )
 parser.add_argument(
     'fasta_filepath', type=str,
@@ -35,8 +35,11 @@ if __name__ == '__main__':
     # parse arguments
     args = parser.parse_args()
 
-    # read the csv in chunks
-    chunks = to_fasta(args.csv_filepath, chunk_size=args.chunk_size)
+    # read chunks of sequences
+    if args.csv_filepath.split('.')[-1].lower() == 'smi':
+        chunks = smi_to_fasta(args.csv_filepath, chunk_size=args.chunk_size)
+    else:
+        chunks = csv_to_fasta(args.csv_filepath, chunk_size=args.chunk_size)
 
     # write the fasta file
     if args.gzipped:

@@ -65,7 +65,7 @@ def parse_fasta(filepath, gzipped=True):
         yield sequence
 
 
-def to_fasta(filepath, chunk_size=10000):
+def csv_to_fasta(filepath, chunk_size):
     """
     Parse csv (from upfp parsed fasta) and return an iterator of sequences.
 
@@ -73,7 +73,7 @@ def to_fasta(filepath, chunk_size=10000):
         filepath (str): path to the file.
         chunk_size (int): number of rows to process at a time.
     Returns:
-        str: generator of chunks of fasta seqences.
+        str: generator of chunks of fasta sequences.
     """
     for chunk in pd.read_csv(filepath, chunksize=chunk_size, index_col=0):
         sequences = []
@@ -83,8 +83,29 @@ def to_fasta(filepath, chunk_size=10000):
         yield ''.join(sequences)
 
 
+def smi_to_fasta(filepath, chunk_size):
+    """
+    Parse .smi (tsv) and return an iterator of sequences.
+
+    Args:
+        filepath (str): path to the file. The file is expected to have sequence
+            and accession_number as first columns.
+        chunk_size (int): number of rows to process at a time.
+    Returns:
+        str: generator of chunks of fasta seqences.
+    """
+
+    chunks = pd.read_csv(filepath, chunksize=chunk_size, sep='\t', header=None)
+    for chunk in chunks:
+        sequences = []
+        for _, row in chunk.iterrows():
+            header = row.iloc[1]
+            sequences.append(format_fasta(header, row.iloc[0]))
+        yield ''.join(sequences)
+
+
 def format_fasta(header, sequence, line_length=60):
-    """Format sequence as in FASTA with leading '>'.
+    """Format sequence as in fasta with leading '>'.
 
     Args:
         header (str): description.
@@ -96,13 +117,13 @@ def format_fasta(header, sequence, line_length=60):
     """
     lines = [f'>{header}\n']
     for i in range(0, len(sequence), line_length):
-        lines.append(sequence[i: i + line_length] + '\n')
+        lines.append(sequence[i:i + line_length] + '\n')
 
     return ''.join(lines)
 
 
 def make_header(header_kwargs):
-    """Fill values in FASTA_HEADER_STR to recreate header.
+    """Fill values in FASTA_HEADER_STR to recreate full header.
 
     Args:
         header_kwargs ([dict or pandas.Series]): keyword arguments
